@@ -1,0 +1,24 @@
+<button class="chat-toggle" (click)="toggleChat()">💬</button>
+
+<div class="chat-window" *ngIf="isOpen">
+  <div class="chat-header">
+    <button (click)="toggleChat()">✖</button>
+  </div>
+  <div class="chat-body">
+    <div
+      *ngFor="let msg of messages"
+      class="chat-message"
+      [class.user]="msg.from === 'user'"
+    >
+      {{ msg.text }}
+    </div>
+  </div>
+  <div class="chat-input">
+    <input
+      [(ngModel)]="userInput"
+      (keydown.enter)="sendMessage()"
+      placeholder="Escribe un mensaje..."
+    />
+    <button (click)="sendMessage()">Enviar</button>
+  </div>
+</div>
