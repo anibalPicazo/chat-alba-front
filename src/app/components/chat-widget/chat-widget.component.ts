@@ -37,7 +37,6 @@ export class ChatWidgetComponent {
     )
     this.messages.push({ from: 'user', text: this.userInput });
 
-    // Simulación de respuesta del bot
 
     this.userInput = '';
   }
